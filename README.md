@@ -76,9 +76,13 @@ ansible 2.10.4
 ### Provision
 
 - Nginx
-- Ruby
-- Node.js
-- systemd
+- Ruby with [rbenv](https://github.com/rbenv/rbenv)
+- Node.js with [nvm](https://github.com/nvm-sh/nvm)
+
+```sh
+# Check playbook format
+$ ansible-playbook ansible/playbook.yml -i ansible/hosts --check
+```
 
 ## Vagrant
 

@@ -1,0 +1,14 @@
+---
+- name: Enable install Nginx
+  shell: amazon-linux-extras enable nginx1
+  become_user: root
+- name: Install Nginx
+  package:
+    name: nginx
+    state: present
+  become_user: root
+- name: Start service Nginx, if not started
+  service:
+    name: nginx
+    state: started
+  become_user: root

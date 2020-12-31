@@ -1,0 +1,7 @@
+---
+- name: Install common libraries
+  package:
+    name:
+      - git
+      - openssl-devel
+  become_user: root

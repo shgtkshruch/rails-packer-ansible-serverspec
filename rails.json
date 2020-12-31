@@ -15,13 +15,14 @@
       "source_path": "gbailey/amzn2",
       "box_version": "v20201219.0.0",
       "provider": "virtualbox",
-      "type": "vagrant"
+      "type": "vagrant",
+      "add_force": true
     }
   ],
   "provisioners": [
     {
       "type": "ansible",
-      "playbook_file": "./playbook.yml"
+      "playbook_file": "./ansible/playbook.yml"
     }
   ]
 }

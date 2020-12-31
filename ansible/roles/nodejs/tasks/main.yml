@@ -1,0 +1,14 @@
+---
+# https://github.com/nvm-sh/nvm#ansible
+- name: Install NVM
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+    warn: no
+- name: Set $PATH
+  shell: echo 'export NVM_DIR="$HOME/.nvm"' >> .bash_profile
+- name: Loads nvm
+  shell: echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> .bash_profile
+- name: Install Node.js {{ node_version }}
+  shell: source {{ ansible_env.HOME }}/.bash_profile && nvm install {{ node_version }}
