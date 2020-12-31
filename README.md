@@ -80,4 +80,26 @@ ansible 2.10.4
 - Node.js
 - systemd
 
+## Vagrant
+
+```sh
+$ brew install vagrant
+$ vagrant --version
+Vagrant 2.2.14
+
+$ brew install virtualbox
+# https://stackoverflow.com/questions/52689672/virtualbox-ns-error-failure-0x80004005-macos
+
+$ vboxmanage --version
+6.1.16r140961
+```
+
+```sh
+$ packer build -force -only=vagrant rails.json
+```
+
+```sh
+$ vagrant up
+$ vagrant ssh
+```
 ## Serverspec

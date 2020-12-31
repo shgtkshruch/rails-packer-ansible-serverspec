@@ -1,12 +1,21 @@
 {
   "builders": [
     {
+      "name": "aws",
       "type": "amazon-ebs",
       "region": "ap-northeast-1",
       "ami_name": "rails-packer-ansible-serverspec-{{timestamp}}",
       "instance_type": "t2.micro",
       "source_ami": "ami-01748a72bed07727c",
       "ssh_username": "ec2-user"
+    },
+    {
+      "name": "vagrant",
+      "communicator": "ssh",
+      "source_path": "gbailey/amzn2",
+      "box_version": "v20201219.0.0",
+      "provider": "virtualbox",
+      "type": "vagrant"
     }
   ],
   "provisioners": [
@@ -14,6 +23,5 @@
       "type": "ansible",
       "playbook_file": "./playbook.yml"
     }
-  ],
   ]
 }
