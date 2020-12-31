@@ -82,6 +82,8 @@ ansible 2.10.4
 
 ## Vagrant
 
+### Install
+
 ```sh
 $ brew install vagrant
 $ vagrant --version
@@ -103,3 +105,14 @@ $ vagrant up
 $ vagrant ssh
 ```
 ## Serverspec
+
+### Install
+
+```sh
+$ bundle install
+```
+
+### Test
+```
+$ bundle exec rake spec
+```
