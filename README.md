@@ -1,5 +1,12 @@
 # Rails Packer Ansible Serverspec
 
+## Stacks
+- [AWS CLI](https://aws.amazon.com/jp/cli/)
+- [Packer](https://www.packer.io/)
+- [Ansible](https://www.ansible.com/)
+- [Vagrant](https://www.vagrantup.com/)
+- [Serverspec](https://serverspec.org/)
+
 ## AWS
 
 create iam user.
@@ -14,7 +21,6 @@ $ aws iam attach-user-policy \
   --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
 $ aws iam create-access-key --user-name rails-packer-ansible-serverspec
 ```
-
 ### Cleaning
 
 ```sh
@@ -45,6 +51,9 @@ $ packer inspect rails.json
 
 $ packer validate rails.json
 
+$ export AWS_ACCESS_KEY_ID="anaccesskey"
+$ export AWS_SECRET_ACCESS_KEY="asecretkey"
+
 $ packer build rails.json
 ```
 
@@ -55,5 +64,20 @@ $ aws ec2 deregister-image --image-id IMAGE_ID
 ```
 
 ## Ansible
+
+### Install
+
+```sh
+$ brew install ansible
+$ ansible --version
+ansible 2.10.4
+```
+
+### Provision
+
+- Nginx
+- Ruby
+- Node.js
+- systemd
 
 ## Serverspec

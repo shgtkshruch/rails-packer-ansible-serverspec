@@ -8,5 +8,12 @@
       "source_ami": "ami-01748a72bed07727c",
       "ssh_username": "ec2-user"
     }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "./playbook.yml"
+    }
+  ],
   ]
 }
