@@ -1,7 +1,7 @@
 {
   "builders": [
     {
-      "name": "aws",
+      "name": "amazon-linux",
       "type": "amazon-ebs",
       "region": "ap-northeast-1",
       "ami_name": "rails-packer-ansible-serverspec-{{timestamp}}",

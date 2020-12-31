@@ -2,11 +2,10 @@
 - name: Provision Image
   hosts: default
   become: yes
-  become_user: vagrant
 
   vars:
     ruby_version: 3.0.0
-    node_version: 14.15.3
+    node_major_version: 14
 
   roles:
     - common

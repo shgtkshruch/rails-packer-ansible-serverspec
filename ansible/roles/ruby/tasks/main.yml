@@ -1,23 +1,26 @@
 ---
 # https://github.com/rbenv/rbenv#basic-github-checkout
+# https://blakewilliams.me/posts/system-wide-rbenv-install
 - name: Checkout rbenv
   git:
     repo: https://github.com/rbenv/rbenv.git
-    dest: "{{ ansible_env.HOME }}/.rbenv"
+    dest: "{{ rbenv_path }}"
 - name: Build rbenv
   shell:
     cmd: src/configure && make -C src
-    chdir: "{{ ansible_env.HOME }}/.rbenv"
+    chdir: "{{ rbenv_path }}"
 - name: Add rbenv to $PATH
-  shell:
-    cmd: echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> {{ ansible_env.HOME }}/.bash_profile
-- name: Set up rbenv in shell
-  shell: echo 'eval "$(rbenv init -)"' >> .bash_profile 
+  blockinfile:
+    path: /etc/profile
+    block: |
+      # rbenv initialization
+      {{ rbenv_init }}
 - name: Checkout ruby-buld
   git:
     repo: https://github.com/rbenv/ruby-build.git
-    dest: "{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build"
+    dest: "{{ rbenv_path }}/plugins/ruby-build"
 - name: Install Ruby {{ ruby_version }}
-  shell: source {{ ansible_env.HOME }}/.bash_profile && rbenv install {{ ruby_version }}
-- name: Set Ruby version to {{ ruby_version }}
-  shell: source {{ ansible_env.HOME }}/.bash_profile && rbenv global {{ ruby_version }}
+  shell: |
+    {{ rbenv_init }}
+    rbenv install {{ ruby_version }}
+    rbenv global {{ ruby_version }}

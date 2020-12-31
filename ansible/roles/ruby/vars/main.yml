@@ -1,0 +1,6 @@
+---
+rbenv_path: /usr/local/rbenv
+rbenv_init: |
+  export RBENV_ROOT={{ rbenv_path }}
+  export PATH="$RBENV_ROOT/bin:$PATH"
+  eval "$(rbenv init -)"

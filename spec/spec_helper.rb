@@ -33,6 +33,9 @@ set :ssh_options, options
 # Disable sudo
 # set :disable_sudo, true
 
+# run command under `vagrant` with simulate initial login
+# ref: https://serverspec.org/advanced_tips.html
+set :sudo_options, '-u vagrant -i'
 
 # Set environment variables
 # set :env, :LANG => 'C', :LC_MESSAGES => 'C'
