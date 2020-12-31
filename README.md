@@ -77,7 +77,7 @@ ansible 2.10.4
 
 - Nginx
 - Ruby with [rbenv](https://github.com/rbenv/rbenv)
-- Node.js with [nvm](https://github.com/nvm-sh/nvm)
+- Node.js
 
 ```sh
 # Check playbook format
@@ -110,7 +110,7 @@ $ vagrant ssh
 ```
 ## Serverspec
 
-### Install
+### Install gems
 
 ```sh
 $ bundle install
