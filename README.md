@@ -11,7 +11,7 @@ $ aws iam create-policy \
   --policy-document file://policy.json
 $ aws iam attach-user-policy \
   --user-name rails-packer-ansible-serverspec \
-  --policy-arn arn:aws:iam::<ACCONT_ID>:policy/rails-packer-ansible-serverspec
+  --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
 $ aws iam create-access-key --user-name rails-packer-ansible-serverspec
 ```
 
@@ -20,10 +20,10 @@ $ aws iam create-access-key --user-name rails-packer-ansible-serverspec
 ```sh
 $ aws iam detach-user-policy \
   --user-name rails-packer-ansible-serverspec \
-  --policy-arn arn:aws:iam::<ACCONT_ID>:policy/rails-packer-ansible-serverspec
-$ aws iam delete-policy --policy-arn arn:aws:iam::<ACCONT_ID>:policy/rails-packer-ansible-serverspec
+  --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
+$ aws iam delete-policy --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
 $ aws iam delete-access-key \
-  --access-key-id <ACCESSKEY_ID> \
+  --access-key-id ACCESSKEY_ID \
   --user-name rails-packer-ansible-serverspec
 $ aws iam delete-user --user-name rails-packer-ansible-serverspec
 ```
@@ -43,12 +43,15 @@ $ packer --version
 ```sh
 $ packer inspect rails.json
 
-$ packer fmt -check rails.json
-$ packer fmt rails.json
-
 $ packer validate rails.json
 
 $ packer build rails.json
+```
+
+## Deregister Image
+
+```sh
+$ aws ec2 deregister-image --image-id IMAGE_ID
 ```
 
 ## Ansible

@@ -1,0 +1,12 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "ap-northeast-1",
+      "ami_name": "rails-packer-ansible-serverspec-{{timestamp}}",
+      "instance_type": "t2.micro",
+      "source_ami": "ami-01748a72bed07727c",
+      "ssh_username": "ec2-user"
+    }
+  ]
+}
