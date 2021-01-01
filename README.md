@@ -14,29 +14,18 @@ Building and testing Amazon Linux 2 and Vagrant Box with Packer, Ansible and Ser
 
 ## AWS
 
+Install [jq](https://stedolan.github.io/jq/) if you don't have.
+
 Create IAM user for Packer.
 
 ```sh
-$ aws iam create-user --user-name rails-packer-ansible-serverspec
-$ aws iam create-policy \
-  --policy-name rails-packer-ansible-serverspec \
-  --policy-document file://packer/policy.json
-$ aws iam attach-user-policy \
-  --user-name rails-packer-ansible-serverspec \
-  --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
-$ aws iam create-access-key --user-name rails-packer-ansible-serverspec
+$ ./aws/create-user.sh
 ```
-### Cleaning
+
+Delete user.
 
 ```sh
-$ aws iam detach-user-policy \
-  --user-name rails-packer-ansible-serverspec \
-  --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
-$ aws iam delete-policy --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
-$ aws iam delete-access-key \
-  --access-key-id ACCESSKEY_ID \
-  --user-name rails-packer-ansible-serverspec
-$ aws iam delete-user --user-name rails-packer-ansible-serverspec
+$ ./aws/delete-user.sh
 ```
 
 ## Packer
