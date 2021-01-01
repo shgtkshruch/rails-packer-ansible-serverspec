@@ -11,7 +11,7 @@ Building and testing Amazon Linux 2 and Vagrant Box with Packer, Ansible and Ser
 
 ## AWS
 
-create iam user.
+Create IAM user for Packer.
 
 ```sh
 $ aws iam create-user --user-name rails-packer-ansible-serverspec
@@ -59,7 +59,7 @@ $ export AWS_SECRET_ACCESS_KEY="asecretkey"
 $ packer build packer/rails.json
 ```
 
-## Deregister Image
+### Deregister Image
 
 ```sh
 $ aws ec2 deregister-image --image-id IMAGE_ID
@@ -75,7 +75,7 @@ $ ansible --version
 ansible 2.10.4
 ```
 
-### Provision
+### Provisioning
 
 - Nginx
 - Ruby with [rbenv](https://github.com/rbenv/rbenv)
@@ -101,6 +101,8 @@ $ brew install virtualbox
 $ vboxmanage --version
 6.1.16r140961
 ```
+
+### Build Box
 
 ```sh
 $ packer build -force -only=vagrant packer/rails.json
