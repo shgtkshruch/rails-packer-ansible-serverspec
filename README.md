@@ -8,6 +8,7 @@ Building and testing Amazon Linux 2 and Vagrant Box with Packer, Ansible and Ser
 - [Ansible](https://www.ansible.com/)
 - [Vagrant](https://www.vagrantup.com/)
 - [Serverspec](https://serverspec.org/)
+- [GitHub Actions](https://github.com/features/actions)
 
 ## AWS
 
