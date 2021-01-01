@@ -12,8 +12,9 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = 'rails-packer'
-  config.vm.box_url = "file://output-vagrant/package.box"
+  config.vm.box = "shgtkshruch/rails-packer"
+  config.vm.box_url = "file://packer/metadata.json"
+  config.vm.box_check_update = true
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

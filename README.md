@@ -1,5 +1,7 @@
 # Rails Packer Ansible Serverspec
 
+Building and testing Amazon Linux 2 and Vagrant Box with Packer, Ansible and Serverspec.
+
 ## Stacks
 - [AWS CLI](https://aws.amazon.com/jp/cli/)
 - [Packer](https://www.packer.io/)
@@ -15,7 +17,7 @@ create iam user.
 $ aws iam create-user --user-name rails-packer-ansible-serverspec
 $ aws iam create-policy \
   --policy-name rails-packer-ansible-serverspec \
-  --policy-document file://policy.json
+  --policy-document file://packer/policy.json
 $ aws iam attach-user-policy \
   --user-name rails-packer-ansible-serverspec \
   --policy-arn arn:aws:iam::ACCONT_ID:policy/rails-packer-ansible-serverspec
@@ -47,14 +49,14 @@ $ packer --version
 ### Build Image
 
 ```sh
-$ packer inspect rails.json
+$ packer inspect packer/rails.json
 
-$ packer validate rails.json
+$ packer validate packer/rails.json
 
 $ export AWS_ACCESS_KEY_ID="anaccesskey"
 $ export AWS_SECRET_ACCESS_KEY="asecretkey"
 
-$ packer build rails.json
+$ packer build packer/rails.json
 ```
 
 ## Deregister Image
@@ -101,12 +103,19 @@ $ vboxmanage --version
 ```
 
 ```sh
-$ packer build -force -only=vagrant rails.json
+$ packer build -force -only=vagrant packer/rails.json
 ```
 
 ```sh
 $ vagrant up
 $ vagrant ssh
+```
+### Update Box
+
+Add new version box configuration to `packer/metadata.json`, then run command below.
+
+```sh
+$ vagrant box update
 ```
 ## Serverspec
 

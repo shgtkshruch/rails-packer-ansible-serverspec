@@ -1,0 +1,14 @@
+{
+  "name": "shgtkshruch/rails-packer",
+  "versions": [
+    {
+      "version": "20200102",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "output-vagrant/package.box"
+        }
+      ]
+    }
+  ]
+}
