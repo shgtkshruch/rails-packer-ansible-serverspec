@@ -1,3 +1,5 @@
+[![Serverspec](https://github.com/shgtkshruch/rails-packer-ansible-serverspec/workflows/Serverspec/badge.svg)](https://github.com/shgtkshruch/rails-packer-ansible-serverspec/actions?query=workflow%3AServerspec)
+
 # Rails Packer Ansible Serverspec
 
 Building and testing Amazon Linux 2 and Vagrant Box with Packer, Ansible and Serverspec.
